@@ -42,7 +42,10 @@ class ReachPlugin : JavaPlugin()
                 val player = it.player
                 val reach = ranges[player.uniqueId]!!
 
-                val entities = player.getNearbyEntities(reach, reach, reach)
+                val entities = player.getNearbyEntities(
+                    reach, reach, reach
+                )
+
                 val direction = player.eyeLocation.direction
 
                 var damage = 0.0
@@ -69,11 +72,15 @@ class ReachPlugin : JavaPlugin()
                         continue
                     }
 
-                    val angle = entity.location.subtract(player.location).toVector().normalize()
+                    val angle = entity.location
+                        .subtract(player.location)
+                        .toVector()
+                        .normalize()
 
                     if (direction.distance(angle) < 0.1)
                     {
                         entity.damage(damage, player)
+                        break
                     }
                 }
             }
