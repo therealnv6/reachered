@@ -19,6 +19,10 @@ repositories {
     }
 
     maven {
+        url 'https://repo.dmulloy2.net/content/groups/public/'
+    }
+
+    maven {
         url "https://oss.sonatype.org/content/repositories/snapshots/"
     }
 
@@ -31,5 +35,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
     implementation 'com.github.devrawr:events:31631859a6'
 
+    compileOnly 'com.comphenix.protocol:ProtocolLib:4.5.0' // for aimbot, have to teleport entity.
     compileOnly "org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT"
 }

@@ -1,8 +1,15 @@
 name: reachered
 main: io.github.devrawr.reach.ReachPlugin
 version: 1.0-reachered
+softdepend:
+  - ProtocolLib
+
 commands:
   reach:
     aliases:
       - range
+  cheat:
+    aliases:
+      - cheats
       - hacks
+      - mods

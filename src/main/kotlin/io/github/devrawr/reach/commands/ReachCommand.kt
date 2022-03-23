@@ -1,6 +1,6 @@
 package io.github.devrawr.reach.commands
 
-import io.github.devrawr.reach.ReachPlugin
+import io.github.devrawr.reach.cheat.type.ReachCheat
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
@@ -31,7 +31,8 @@ object ReachCommand : CommandExecutor
             range -> sender.sendMessage("${ChatColor.RED}${args[1]} is not a double, format: x.x")
             else ->
             {
-                ReachPlugin.ranges[player.uniqueId] = range
+                ReachCheat.rangeMap[player.uniqueId] = range
+                ReachCheat.toggle(player)
 
                 sender.sendMessage(
                     "${ChatColor.YELLOW}Set ${ChatColor.AQUA}${player.name}${ChatColor.YELLOW}'s range to ${ChatColor.AQUA}${range}"
