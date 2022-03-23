@@ -25,19 +25,19 @@ object ReachCommand : CommandExecutor
         val player = Bukkit.getPlayer(args[0])
         val range = args[1].toDoubleOrNull()
 
-        if (player == null)
+        when (null)
         {
-            sender.sendMessage("${ChatColor.RED}No player found by name ${args[0]}")
-            return true
-        }
+            player -> sender.sendMessage("${ChatColor.RED}No player found by name ${args[0]}")
+            range -> sender.sendMessage("${ChatColor.RED}${args[1]} is not a double, format: x.x")
+            else ->
+            {
+                ReachPlugin.ranges[player.uniqueId] = range
 
-        if (range == null)
-        {
-            sender.sendMessage("${ChatColor.RED}${args[1]} is not a double, format: x.x")
-            return true
+                sender.sendMessage(
+                    "${ChatColor.YELLOW}Set ${ChatColor.AQUA}${player.name}${ChatColor.YELLOW}'s range to ${ChatColor.AQUA}${range}"
+                )
+            }
         }
-
-        ReachPlugin.ranges[player.uniqueId] = range
 
         return true
     }

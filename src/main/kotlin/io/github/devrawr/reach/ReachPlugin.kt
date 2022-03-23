@@ -46,10 +46,7 @@ class ReachPlugin : JavaPlugin()
                     reach, reach, reach
                 )
 
-                val direction = player.eyeLocation.direction
-
                 var damage = 0.0
-
                 val item = player.itemInHand
 
                 if (item != null && !damageMap.containsKey(item.type)) // TODO: 3/23/22 normalize by armor I guess
@@ -64,6 +61,8 @@ class ReachPlugin : JavaPlugin()
                 {
                     damage = 0.5
                 }
+
+                val direction = player.eyeLocation.direction
 
                 for (entity in entities)
                 {
