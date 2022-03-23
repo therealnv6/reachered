@@ -49,7 +49,7 @@ class ReachPlugin : JavaPlugin()
                 var damage = 0.0
                 val item = player.itemInHand
 
-                if (item != null && !damageMap.containsKey(item.type)) // TODO: 3/23/22 normalize by armor I guess
+                if (item != null && !damageMap.containsKey(item.type))
                 {
                     damage += damageMap[item.type]!!
 
