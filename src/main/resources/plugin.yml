@@ -1,0 +1,8 @@
+name: reachered
+main: io.github.devrawr.reach.ReachPlugin
+version: 1.0-reachered
+commands:
+  reach:
+    aliases:
+      - range
+      - hacks
